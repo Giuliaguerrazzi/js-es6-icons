@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Rubik', sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+/* HEADER */
+header {
+  font-size: 40px;
+  padding: 20px;
+  color: dodgerblue;
+}
+
+.logo {
+  font-family: 'Acme', sans-serif;
+}
+
+/* SEARCH */
+.search {
+  text-align: center;
+  background-color: dodgerblue;
+  color: #fff;
+  padding: 20px;
+  text-transform: uppercase;
+}
+
+.search select {
+  margin-left: 5px;
+}
+
+/* ICONS */
+.icons {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: #ddd;
+  padding: 20px;
+}
+
+.icons .icon {
+  flex-basis: calc(100% / 6 - 20px);
+  margin: 20px 10px;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.icons .icon i {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
