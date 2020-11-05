@@ -117,6 +117,26 @@ const icons = [
   const coloredIcons = colorIcons(icons, colors);
   console.log(coloredIcons);
   printIcons(coloredIcons, container);
+
+  // tendina dei tipi
+  const select = $('#type');
+
+  // ottenere i tipi con una funzione già creata
+  const types = getType(icons);
+
+  // generazione delle opzioni
+  genOption(types, select);
+
+  // evento al cambio della select
+  select.change(() => {
+    // prendere il valore selezionato
+    const selected = select.val();
+
+    // ottenre una array di icone con una funzione di filtraggio
+    const filteredIcons = filterIcons(coloredIcons, selected);
+    printIcons(filteredIcons, container);
+  })
+
 }); //end doc
 
 
@@ -124,6 +144,8 @@ const icons = [
 // function
 // stampare le icone nel contaier
 function printIcons(icons, container) {
+
+  container.html('');
 
   icons.forEach((icon) => {
     // destrutturazione di icon
@@ -176,4 +198,25 @@ function getType(icons) {
 
   // viene ritornata fuori ed assegnata alla variabile
   return types;
+}
+
+// opzione dei tipi
+// aggiunto le varie tipologie di tipi presenti
+function genOption(types, select) {
+  types.forEach((opt) => {
+    select.append(`<option value="${opt}">${opt}</option>`);
+  });
+}
+
+function filterIcons(coloredIcons, selected) {
+
+  if(selected === 'all') {
+    return coloredIcons;
+  }
+
+  const filtered = coloredIcons.filter((icon) => {
+    return icon.type === selected;
+  });
+
+  return filtered;
 }
